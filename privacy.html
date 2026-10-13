@@ -1,48 +1,28 @@
-const posts = [
-  {
-    title: 'Primer artículo del blog',
-    excerpt: 'Este es un ejemplo de entrada para tu blog personal o de contenido.',
-    link: '#'
-  },
-  {
-    title: 'Consejos para empezar con tu sitio web',
-    excerpt: 'Organiza tu contenido para que sea claro, útil y fácil de leer.',
-    link: '#'
-  },
-  {
-    title: 'Cómo mejorar el rendimiento de tu blog',
-    excerpt: 'Ajustes básicos que hacen que la experiencia del usuario mejore mucho.',
-    link: '#'
-  }
-];
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">Mi Blog</div>
+      <nav class="menu">
+        <a href="/">Inicio</a>
+        <a href="privacy.html">Privacidad</a>
+      </nav>
+    </div>
+  </header>
 
-const postsContainer = document.getElementById('posts');
-if (postsContainer) {
-  posts.forEach(post => {
-    const card = document.createElement('article');
-    card.className = 'post-card';
-    card.innerHTML = `
-      <h2><a href="${post.link}">${post.title}</a></h2>
-      <p>${post.excerpt}</p>
-    `;
-    postsContainer.appendChild(card);
-  });
-}
-
-const cookieBanner = document.getElementById('cookie-banner');
-const acceptCookiesButton = document.getElementById('accept-cookies');
-
-if (cookieBanner && acceptCookiesButton) {
-  const consent = localStorage.getItem('cookie-consent');
-  if (!consent) {
-    cookieBanner.classList.remove('hidden');
-  }
-
-  acceptCookiesButton.addEventListener('click', () => {
-    localStorage.setItem('cookie-consent', 'accepted');
-    cookieBanner.classList.add('hidden');
-    if (window.adsbygoogle) {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    }
-  });
-}
+  <main class="container page">
+    <section class="hero">
+      <h1>Política de Privacidad</h1>
+      <p>Este sitio puede usar cookies para mejorar la experiencia del usuario y mostrar anuncios. El consentimiento del usuario se gestiona con un banner de cookies.</p>
+      <p>Los datos no se venden, ni se comparten con terceros para fines de marketing sin tu consentimiento.</p>
+    </section>
+  </main>
+</body>
+</html>
