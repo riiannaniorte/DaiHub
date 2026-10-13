@@ -10,6 +10,13 @@
       link: 'articulos/black-clover-temporada-2.html'
     },
     {
+      category: 'Estrenos',
+      title: 'Tokyo Revengers – Temporada 4 (War of the Three Titans Arc)',
+      excerpt: 'Aunque Takemichi logra un futuro feliz donde Hina y sus amigos están a salvo, descubre que Mikey ha desaparecido para liderar Bonten, la organización criminal más peligrosa de Japón..',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4eAGERSywR8ldsv6HMOKynIPfEKpbQ8fmdhePKqd9WQ&s=10',
+      link: 'articulos/Tokyo-Revengers-temporada-4.html'
+    },
+    {
       category: 'Noticias',
       title: 'Dragon Ball Super: Beerus ya tiene fecha de estreno',
       excerpt: 'La edición mejorada de la historia de Beerus llegó a la programación de otoño de 2026. Estos son los datos anunciados.',
