@@ -13,14 +13,14 @@
       category: 'Noticias',
       title: 'Dragon Ball Super: Beerus ya tiene fecha de estreno',
       excerpt: 'La edición mejorada de la historia de Beerus llegó a la programación de otoño de 2026. Estos son los datos anunciados.',
-      image: 'https://images.unsplash.com/photo-1614583225154-5fcfea8b87d0?auto=format&fit=crop&w=1000&q=80',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2CyavOc42sPCG7YBMMlHnJayGnvDXDa-fMfHIjAyH7A&s=10',
       link: 'articulos/dragon-ball-super-beerus.html'
     },
     {
       category: 'Comunidad',
       title: 'Jujutsu Kaisen anuncia una colaboración especial para noviembre',
       excerpt: 'La franquicia prepara una colaboración en Japón relacionada con Shibuya: fechas, lugares y lo que se ha anunciado.',
-      image: 'https://images.unsplash.com/photo-1601850494422-3cf14624b0b3?auto=format&fit=crop&w=1000&q=80',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5MVJnQ38quoUqdAQPzWjDZcLP9CoyiqX_lpASap9UJQ&s=10',
       link: 'articulos/jujutsu-kaisen-colaboracion.html'
     }
   ];
