@@ -16,6 +16,13 @@
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4eAGERSywR8ldsv6HMOKynIPfEKpbQ8fmdhePKqd9WQ&s=10',
       link: 'articulos/Tokyo-Revengers-temporada-4.html'
     },
+     {
+      category: 'Estrenos',
+      title: 'Chainsaw Man – Temporada 2',
+      excerpt: 'El secreto de Denji sale a la luz y asesinos de elite de todo el mundo viajan a Japón para reclamar el corazón del Demonio Motosierra.',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHPGxOM4ZcFEO3vgSZwyDiwFrxLzNdmmQI1lveftIkJQ&s=10',
+      link: 'articulos/Chainsaw-Man–Temporada-2.html'
+    },
     {
       category: 'Noticias',
       title: 'Dragon Ball Super: Beerus ya tiene fecha de estreno',
