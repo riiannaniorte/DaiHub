@@ -41,7 +41,7 @@
       category: 'Noticias',
       title: 'My Hero Academia: The Final Legacy',
       excerpt: 'Película epílogo ambientada años después de la gran guerra final, mostrando a Deku y la Clase 1-A como héroes profesionales adultos',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTadiAbQ0DCK_wLgyleuseaoOzGodXFEGyunNLehLtz9Q&s=10',
+      image: 'https://cdn.essential-japan.com/wp-content/uploads/2026/06/MHA-10th-Anniversary-Exhibition-1-1024x576.webp',
       link: 'articulos/my-hero-academy.html'
     },
     {
