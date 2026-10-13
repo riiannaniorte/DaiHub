@@ -1,48 +1,20 @@
-const posts = [
-  {
-    title: 'Primer artículo del blog',
-    excerpt: 'Este es un ejemplo de entrada para tu blog personal o de contenido.',
-    link: '#'
-  },
-  {
-    title: 'Consejos para empezar con tu sitio web',
-    excerpt: 'Organiza tu contenido para que sea claro, útil y fácil de leer.',
-    link: '#'
-  },
-  {
-    title: 'Cómo mejorar el rendimiento de tu blog',
-    excerpt: 'Ajustes básicos que hacen que la experiencia del usuario mejore mucho.',
-    link: '#'
-  }
-];
-
-const postsContainer = document.getElementById('posts');
-if (postsContainer) {
-  posts.forEach(post => {
-    const card = document.createElement('article');
-    card.className = 'post-card';
-    card.innerHTML = `
-      <h2><a href="${post.link}">${post.title}</a></h2>
-      <p>${post.excerpt}</p>
-    `;
-    postsContainer.appendChild(card);
-  });
-}
-
-const cookieBanner = document.getElementById('cookie-banner');
-const acceptCookiesButton = document.getElementById('accept-cookies');
-
-if (cookieBanner && acceptCookiesButton) {
-  const consent = localStorage.getItem('cookie-consent');
-  if (!consent) {
-    cookieBanner.classList.remove('hidden');
-  }
-
-  acceptCookiesButton.addEventListener('click', () => {
-    localStorage.setItem('cookie-consent', 'accepted');
-    cookieBanner.classList.add('hidden');
-    if (window.adsbygoogle) {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
     }
-  });
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
 }
