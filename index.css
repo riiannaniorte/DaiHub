@@ -1,212 +1,90 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const usuarioActual = localStorage.getItem('usuario_conectado');
+    const menuAdmin = document.getElementById('menu-admin');
+    const nombreUsuarioLink = document.getElementById('nombre-usuario');
+    const contenedor = document.getElementById('contenedor-2026');
 
-body {
-    background-color: #121212;
-    color: #e0e0e0;
-}
+    if (nombreUsuarioLink) {
+        if (usuarioActual) {
+            nombreUsuarioLink.textContent = usuarioActual;
+            nombreUsuarioLink.setAttribute('aria-label', `Usuario actual: ${usuarioActual}`);
+        }
+    }
 
-.page-header {
-    background-color: #1c1b1b;
-    border-bottom: 1px solid #333;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    if (menuAdmin && usuarioActual !== 'admin') {
+        menuAdmin.style.display = 'none';
+    }
 
-.page-header h1 a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    if (contenedor) {
+        cargarElementosInicio();
+    }
+});
 
-.main-menu ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
+const sheetDbUrl = 'https://sheetdb.io/api/v1/2fm1f2txx7vmc';
+const defaultImage = 'imagenes/anime/default.jpg';
 
-.main-menu a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+function cargarElementosInicio() {
+    const contenedor = document.getElementById('contenedor-2026');
 
-.main-menu a:hover {
-    color: #e50914;
-}
+    if (!contenedor) return;
 
-.user-menu-item {
-    position: relative;
-}
+    fetch(sheetDbUrl)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`Error en la petición: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then((datos) => {
+            contenedor.innerHTML = '';
+            let hayRegistros = false;
 
-.user-dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    background: #1c1b1b;
-    border: 1px solid #333;
-    list-style: none;
-    padding: 10px 0;
-    min-width: 160px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-    z-index: 100;
-}
+            datos.forEach((item) => {
+                if (!item || !item.titulo) return;
 
-.user-dropdown li a {
-    display: block;
-    padding: 8px 15px;
-    color: #ccc;
-}
+                const titulo = String(item.titulo).trim();
+                const categoria = item.categoria ? String(item.categoria).trim() : 'N/A';
+                const rutaImagen = item.imagen ? String(item.imagen).trim() : defaultImage;
+                const linkDetalle = `informacion.html?titulo=${encodeURIComponent(titulo)}`;
 
-.user-dropdown li a:hover {
-    background: #252525;
-    color: #fff;
-}
+                const card = document.createElement('article');
+                card.className = 'anime-card news-card';
 
-.user-menu-item:hover .user-dropdown {
-    display: block;
-}
+                const imagenLink = document.createElement('a');
+                imagenLink.href = linkDetalle;
+                imagenLink.setAttribute('aria-label', `Ver información de ${titulo}`);
 
-.logout-separator {
-    border-top: 1px solid #333;
-    margin-top: 5px;
-    padding-top: 5px;
-}
+                const imagen = document.createElement('img');
+                imagen.src = rutaImagen;
+                imagen.alt = titulo;
+                imagen.className = 'anime-img';
+                imagen.loading = 'lazy';
+                imagen.onerror = function () {
+                    this.src = defaultImage;
+                };
 
-.h3 {
-    max-width: 1200px;
-    margin: 30px auto 15px auto;
-    padding: 0 20px;
-    color: #fff;
-    font-size: 20px;
-    border-left: 4px solid #e50914;
-    padding-left: 10px;
-}
+                const title = document.createElement('h3');
+                title.className = 'anime-title';
+                title.textContent = titulo;
 
-.anime-list {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
-}
+                const genre = document.createElement('p');
+                genre.className = 'anime-genre';
+                genre.textContent = `Categoría: ${categoria}`;
 
-.anime-card {
-    background: #1c1b1b;
-    border: 1px solid #333;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s;
-}
+                imagenLink.appendChild(imagen);
+                card.appendChild(imagenLink);
+                card.appendChild(title);
+                card.appendChild(genre);
+                contenedor.appendChild(card);
+                hayRegistros = true;
+            });
 
-.anime-card:hover {
-    transform: translateY(-4px);
-    border-color: #e50914;
-}
-
-.anime-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-.anime-title {
-    color: #fff;
-    font-size: 16px;
-    padding: 12px 12px 4px 12px;
-}
-
-.anime-genre {
-    color: #888;
-    font-size: 13px;
-    padding: 0 12px 15px 12px;
-}
-
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    background: #1c1b1b;
-    border-top: 1px solid #333;
-    color: #777;
-    margin-top: 50px;
-}
-
-.social-links {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.social-links a {
-    color: #aaa;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: #e50914;
-}
-/* Ocultar los submenús por defecto */
-.user-menu-item .user-dropdown,
-.user-menu-item .submenú {
-    display: none !important;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background: #1c1b1b;
-    border: 1px solid #333;
-    list-style: none;
-    padding: 8px 0;
-    min-width: 180px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-    z-index: 100;
-    border-radius: 4px;
-}
-
-/* Forzar que se apilen en columna cuando se muestren */
-.user-menu-item .user-dropdown li,
-.user-menu-item .submenú li {
-    display: block;
-    width: 100%;
-}
-
-.user-menu-item .user-dropdown li a,
-.user-menu-item .submenú li a {
-    display: block;
-    padding: 10px 20px;
-    color: #ccc;
-    white-space: nowrap;
-    text-align: left;
-    text-decoration: none;
-}
-
-.user-menu-item .user-dropdown li a:hover,
-.user-menu-item .submenú li a:hover {
-    background: #252525;
-    color: #fff;
-}
-
-/* Mostrar SOLAMENTE cuando el ratón esté encima del elemento contenedor */
-.user-menu-item:hover .user-dropdown,
-.user-menu-item:hover .submenú {
-    display: block !important;
-}
-
-.logout-separator {
-    border-top: 1px solid #333;
-    margin-top: 5px;
-    padding-top: 5px;
+            if (!hayRegistros) {
+                contenedor.innerHTML = '<p style="color: white; padding: 10px;">No hay registros disponibles.</p>';
+            }
+        })
+        .catch((err) => {
+            console.error('Error al cargar los elementos de inicio:', err);
+            contenedor.innerHTML = '<p style="color: white; padding: 10px;">No se pudieron cargar los elementos.</p>';
+        });
 }

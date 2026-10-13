@@ -1,0 +1,20 @@
+# DaiHub
+
+Proyecto de landing page para una plataforma de contenido tipo anime/series.
+
+## Recomendaciones
+
+- Mantén `index.html` como punto de entrada principal.
+- Usa el archivo `main.js` para el comportamiento dinámico.
+- La configuración de Vercel se gestiona en `vercel.json`.
+- La web usa URLs limpias y redirige `/index.html` a `/`.
+
+## Despliegue
+
+Se despliega en Vercel desde esta rama principal.
+
+## Notas
+
+- El contenido principal se carga usando la API de SheetDB.
+- Las imágenes tienen `loading="lazy"` para mejorar rendimiento.
+- Se usa `canonical` y meta OG para SEO básico.
