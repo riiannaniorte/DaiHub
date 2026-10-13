@@ -6,7 +6,7 @@
       category: 'Estrenos',
       title: 'Black Clover vuelve: lo que debes saber de la temporada 2',
       excerpt: 'Asta y los Caballeros Mágicos regresan en la temporada de otoño de 2026. Repasamos lo confirmado y qué conviene recordar.',
-      image: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1000&q=80',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6Cymj7TtS2QjfaD7S8DTDkzLBoqccFfjm9CjoMWw8kQ&s=10',
       link: 'articulos/black-clover-temporada-2.html'
     },
     {
