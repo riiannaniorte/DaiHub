@@ -1,0 +1,316 @@
+# Mi Blog
+
+Proyecto base para un blog personal con anuncios de Google AdSense.
+
+## Archivos importantes
+- index.html: página principal
+- styles.css: estilo principal
+- main.js: contenido de ejemplo + consentimiento de cookies
+- privacy.html: política de privacidad
+- ads.txt: verificación de AdSense
+- vercel.json: configuración para Vercel
+- sitemap.xml / robots.txt: SEO básico
+
+## Importante
+- Para usar AdSense, tienes que tener tu sitio aprobado y el account verificado.
+- Sustituye `data-ad-slot="1234567890"` por tu slot real de AdSense.
+- En producción, preferiblemente carga los anuncios solo tras aceptar cookies.
+
+## Despliegue
+Se despliega en Vercel desde la rama principal.
+
+# Mi Blog
+
+Proyecto base para un blog personal con anuncios de Google AdSense.
+
+## Archivos importantes
+- index.html: página principal
+- styles.css: estilo principal
+- main.js: contenido de ejemplo + consentimiento de cookies
+- privacy.html: política de privacidad
+- ads.txt: verificación de AdSense
+- vercel.json: configuración para Vercel
+- sitemap.xml / robots.txt: SEO básico
+
+## Importante
+- Para usar AdSense, tienes que tener tu sitio aprobado y el account verificado.
+- Sustituye `data-ad-slot="1234567890"` por tu slot real de AdSense.
+- En producción, preferiblemente carga los anuncios solo tras aceptar cookies.
+
+## Despliegue
+Se despliega en Vercel desde la rama principal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
