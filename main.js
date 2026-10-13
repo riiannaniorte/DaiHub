@@ -31,6 +31,13 @@
       link: 'articulos/dragon-ball-super-beerus.html'
     },
     {
+      category: 'Noticias',
+      title: 'Naruto: Shadow Rising, el nuevo manga ilustrado por Masashi Kishimoto',
+      excerpt: 'Sigue el camino de Naruto hacia el puesto de Séptimo Hokage y las primeras misiones del Equipo 7 como adultos..',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4YdzWyWTJUxVMFXAeLPR1eiizfE0kME1uSBAHUcE47A&s=10',
+      link: 'articulos/Naruto-Shadow-Rising.html'
+    },
+    {
       category: 'Comunidad',
       title: 'Jujutsu Kaisen anuncia una colaboración especial para noviembre',
       excerpt: 'La franquicia prepara una colaboración en Japón relacionada con Shibuya: fechas, lugares y lo que se ha anunciado.',
