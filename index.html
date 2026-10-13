@@ -1,156 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DaiAnime: descubre novedades, películas, series y animes en una experiencia moderna y visual.">
-    <link rel="canonical" href="https://daihub.vercel.app/">
-    <title>DaiAnime - Inicio</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/png" href="DaiAnime.jpeg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blog personal sobre tecnología, creatividad y contenido útil." />
+  <meta property="og:title" content="Mi Blog" />
+  <meta property="og:description" content="Blog personal sobre tecnología, ideas y contenido útil." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daihub.vercel.app/" />
+  <meta property="og:image" content="https://daihub.vercel.app/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Mi Blog</title>
+  <link rel="canonical" href="https://daihub.vercel.app/" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249457513441766" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<header class="page-header">
-    <div class="page-header-inner">
-        <h1>
-            <a href="/" aria-label="Ir a la página de inicio de DaiAnime">
-                <img src="DaiAnime.jpeg" alt="Logo de DaiAnime">
-                <span>DaiAnime</span>
-            </a>
-        </h1>
-
-        <nav class="main-menu" aria-label="Menú principal">
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="peliculas.html">Películas</a></li>
-                <li><a href="series.html">Series</a></li>
-                <li><a href="animes.html">Animes</a></li>
-                <li><a href="Buscar.html">Buscar</a></li>
-                <li><a href="admin.html" id="menu-admin">Admin</a></li>
-                <li class="user-menu-item">
-                    <a href="#" id="nombre-usuario" aria-haspopup="true" aria-expanded="false">Usuario</a>
-                    <ul class="user-dropdown" aria-label="Menú de usuario">
-                        <li><a href="Mi_lista.html">Mi Lista</a></li>
-                        <li><a href="favoritos.html">Favoritos</a></li>
-                        <li class="logout-separator">
-                            <a href="iniciar_sesion.html" onclick="localStorage.removeItem('usuario_conectado');">Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">Mi Blog</div>
+      <nav class="menu">
+        <a href="/">Inicio</a>
+        <a href="privacy.html">Privacidad</a>
+      </nav>
     </div>
-</header>
+  </header>
 
-<h2 class="h3">Novedades y Estrenos</h2>
-<section class="anime-list" id="contenedor-2026" aria-live="polite"></section>
+  <main class="container page">
+    <section class="hero">
+      <h1>Bienvenido a mi blog</h1>
+      <p>Contenido útil, ideas, opiniones y recursos para empezar.</p>
+    </section>
 
-<footer>
-    <p>© 2026 DaiAnime. Todos los derechos reservados.</p>
-    <div class="social-links" aria-label="Redes sociales">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <section class="posts" id="posts"></section>
+
+    <div class="ad-block">
+      <p class="ad-label">Publicidad</p>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9249457513441766"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
-</footer>
+  </main>
 
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
-        const usuarioActual = localStorage.getItem('usuario_conectado');
-        const menuAdmin = document.getElementById('menu-admin');
-        const nombreUsuarioLink = document.getElementById('nombre-usuario');
-        const contenedor = document.getElementById('contenedor-2026');
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Mi Blog</p>
+    </div>
+  </footer>
 
-        if (nombreUsuarioLink) {
-            if (usuarioActual) {
-                nombreUsuarioLink.textContent = usuarioActual;
-                nombreUsuarioLink.setAttribute('aria-label', `Usuario actual: ${usuarioActual}`);
-            }
-        }
+  <div id="cookie-banner" class="cookie-banner hidden">
+    <p>Este sitio usa cookies para mejorar tu experiencia y mostrar anuncios. <a href="privacy.html">Más información</a></p>
+    <button id="accept-cookies">Aceptar</button>
+  </div>
 
-        if (menuAdmin && usuarioActual !== 'admin') {
-            menuAdmin.style.display = 'none';
-        }
-
-        if (contenedor) {
-            cargarElementosInicio();
-        }
-    });
-
-    const sheetDbUrl = 'https://sheetdb.io/api/v1/2fm1f2txx7vmc';
-
-    function cargarElementosInicio() {
-        const contenedor = document.getElementById('contenedor-2026');
-
-        if (!contenedor) {
-            return;
-        }
-
-        fetch(sheetDbUrl)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error(`Error en la petición: ${res.status}`);
-                }
-                return res.json();
-            })
-            .then(datos => {
-                contenedor.innerHTML = '';
-                let hayRegistros = false;
-
-                datos.forEach(item => {
-                    if (!item || !item.titulo) return;
-
-                    const titulo = String(item.titulo).trim();
-                    const categoria = item.categoria ? String(item.categoria).trim() : 'N/A';
-                    const rutaImagen = item.imagen ? String(item.imagen).trim() : 'imagenes/anime/default.jpg';
-                    const linkDetalle = `informacion.html?titulo=${encodeURIComponent(titulo)}`;
-
-                    const card = document.createElement('article');
-                    card.className = 'anime-card news-card';
-
-                    const imagenLink = document.createElement('a');
-                    imagenLink.href = linkDetalle;
-                    imagenLink.setAttribute('aria-label', `Ver información de ${titulo}`);
-
-                    const imagen = document.createElement('img');
-                    imagen.src = rutaImagen;
-                    imagen.alt = titulo;
-                    imagen.className = 'anime-img';
-                    imagen.loading = 'lazy';
-                    imagen.onerror = function() {
-                        this.src = 'imagenes/anime/default.jpg';
-                    };
-
-                    const title = document.createElement('h3');
-                    title.className = 'anime-title';
-                    title.textContent = titulo;
-
-                    const genre = document.createElement('p');
-                    genre.className = 'anime-genre';
-                    genre.textContent = `Categoría: ${categoria}`;
-
-                    imagenLink.appendChild(imagen);
-                    card.appendChild(imagenLink);
-                    card.appendChild(title);
-                    card.appendChild(genre);
-                    contenedor.appendChild(card);
-                    hayRegistros = true;
-                });
-
-                if (!hayRegistros) {
-                    contenedor.innerHTML = '<p style="color: white; padding: 10px;">No hay registros disponibles.</p>';
-                }
-            })
-            .catch(err => {
-                console.error('Error al cargar los elementos de inicio:', err);
-                contenedor.innerHTML = '<p style="color: white; padding: 10px;">No se pudieron cargar los elementos.</p>';
-            });
-    }
-</script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249457513441766"
-     crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 </body>
 </html>
